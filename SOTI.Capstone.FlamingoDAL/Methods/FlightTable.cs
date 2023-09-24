@@ -14,7 +14,7 @@ using System.Runtime.Remoting.Messaging;
 namespace SOTI.Capstone.FlamingoDAL.Methods
 {
     /// <summary>
-    /// All the methods related to flight Table are in this file
+    /// All the methods related to flight Table are in this class
     /// </summary>
     public class FlightTable : IFlightAdmin , IFlightUser
     {
@@ -23,6 +23,7 @@ namespace SOTI.Capstone.FlamingoDAL.Methods
         //delete flights //connected
         //add flights //connected
         //get flight by id // connected
+        //search flight for users// connected
 
         private SqlConnection con = null;
         private SqlCommand cmd = null;
