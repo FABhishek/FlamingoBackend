@@ -20,6 +20,9 @@ namespace SOTI.Capstone.Flamingo
             container.RegisterType<ICardInfo, CardInfoTable>();
             container.RegisterType<IFlightUser, FlightTable>();
             container.RegisterType<ICoupon, CouponTable>();
+            container.RegisterType<IRegister, RegisterTable>();
+            
+
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }

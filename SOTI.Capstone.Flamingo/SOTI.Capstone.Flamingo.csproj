@@ -107,6 +107,7 @@
     <Compile Include="Controllers\CardInfoController.cs" />
     <Compile Include="Controllers\CouponController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
