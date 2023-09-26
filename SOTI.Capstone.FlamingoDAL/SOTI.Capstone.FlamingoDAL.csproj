@@ -47,13 +47,16 @@
     <Compile Include="Interfaces\ICoupon.cs" />
     <Compile Include="Interfaces\IFlightAdmin.cs" />
     <Compile Include="Interfaces\IFlightUser.cs" />
+    <Compile Include="Interfaces\IRegister.cs" />
     <Compile Include="Methods\CardInfoTable.cs" />
     <Compile Include="Methods\CouponTable.cs" />
     <Compile Include="Methods\FlightTable.cs" />
+    <Compile Include="Methods\RegisterTable.cs" />
     <Compile Include="Models\CardInfo.cs" />
     <Compile Include="Models\Coupon.cs" />
     <Compile Include="Models\FlightAdmin.cs" />
     <Compile Include="Models\FlightUser.cs" />
+    <Compile Include="Models\Register.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
