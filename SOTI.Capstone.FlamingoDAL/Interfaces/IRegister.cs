@@ -13,5 +13,6 @@ namespace SOTI.Capstone.FlamingoDAL.Interfaces
         bool AddRegistration(Register register);
         Register[] GetAllRegisterData();
 
+        Task<Register> ValidateUserAsync(string emailId, string password);
     }
 }

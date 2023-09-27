@@ -86,7 +86,8 @@ namespace SOTI.Capstone.FlamingoDAL.Methods
                                 Email = row["Email"].ToString(),
                                 DateOfBirth = Convert.ToDateTime(row["DateOfBirth"]),
                                 AadharId = row["AadharId"].ToString(),
-                                Password = row["Password"].ToString()
+                                Password = row["Password"].ToString(),
+                                Role = row["Role"].ToString()
                             };
 
                             registerList.Add(register);
@@ -99,9 +100,54 @@ namespace SOTI.Capstone.FlamingoDAL.Methods
             return registerList.ToArray(); // Converting List<Register> to Register[]
         }
 
+        public Task<Register> ValidateUserAsync(string emailId, string password)
+        {
+            return Task.Run(() =>
+            {
+                using (_con = new SqlConnection(ConnectionString.GetConnectionString()))
+                {
+                    using (SqlDataAdapter adapter= new SqlDataAdapter("usp_ValidateUser", _con))
+                    {
+                        if (_con.State == ConnectionState.Closed)
+                        {
+                            _con.Open();
+                        }
+
+                        using (DataTable registerDataTable = new DataTable())
+                        {
+                            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                            adapter.SelectCommand.Parameters.Add(new SqlParameter("@email", SqlDbType.VarChar, 50)).Value = emailId;
+                            adapter.SelectCommand.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar, 50)).Value = password;
+
+
+                            adapter.Fill(registerDataTable);
+                            Register register = null;
 
 
 
+                            foreach (DataRow row in registerDataTable.Rows)
+                            {
+                                 register = new Register
+                                {
+                                    CustomerId = Convert.ToInt32(row["CustomerId"]),
+                                    FirstName = row["FirstName"].ToString(),
+                                    LastName = row["LastName"].ToString(),
+                                    Email = row["Email"].ToString(),
+                                    DateOfBirth = Convert.ToDateTime(row["DateOfBirth"]),
+                                    AadharId = row["AadharId"].ToString(),
+                                    Password = row["Password"].ToString(),
+                                    Role = row["Role"].ToString()
+                                };
 
+                                break;
+                            }
+
+                            return register;
+                        }
+                    }
+                }
+            });
+        }
     }
 }
