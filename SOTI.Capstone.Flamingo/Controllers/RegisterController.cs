@@ -15,6 +15,7 @@ namespace SOTI.Capstone.Flamingo.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/Register")]
     
+    
     public class RegisterController : ApiController
     {
         private readonly IRegister _registerTable = null;
