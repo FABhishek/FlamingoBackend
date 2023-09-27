@@ -104,6 +104,8 @@
   <ItemGroup>
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Auth\BasicAuthenticationAttribute.cs" />
+    <Compile Include="Auth\BasicAuthorizationAttribute.cs" />
     <Compile Include="Controllers\CardInfoController.cs" />
     <Compile Include="Controllers\CouponController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
